@@ -152,11 +152,12 @@ namespace ProfileGraph
                     data = newsock.Receive(ref send);   //принимаем данные из сокета по UDP
                     this.Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        WriteDebugLog("------ " + DateTime.Now + " ---------------------------------------------------------------------------------");
-                        WriteDebugLog("длина массива RX: " + data.Length.ToString());
-                        WriteDebugLog("сырые данные: " + BitConverter.ToString(data,0).Replace("-"," "));                        
+                        //WriteDebugLog("------ " + DateTime.Now + " ---------------------------------------------------------------------------------");
+                        //WriteDebugLog("длина массива RX: " + data.Length.ToString());
+                        //WriteDebugLog("сырые данные: " + BitConverter.ToString(data,0).Replace("-"," "));                        
                         structMy myStruct = new structMy();
                         myStruct = ByteArrayToNewStuff(data);
+                        /*
                         WriteDebugLog("преобразованные данные: ");
                         WriteDebugLog(myStruct.countPos.ToString());
                         WriteDebugLog(myStruct.nominal.ToString());
@@ -166,8 +167,8 @@ namespace ProfileGraph
                         string textValues = "";
                         for(int i=0;i< myStruct.countPos;i++)
                             textValues = textValues + ";" +myStruct.values[i].ToString();
-
                         WriteDebugLog(textValues);
+                        */
                         grafBuilder(myStruct);
                     }));
                 }
@@ -391,25 +392,10 @@ namespace ProfileGraph
         unsafe private void grafBuilder(structMy data)
         {
             try
-            {
+            {               
                 var model = new PlotModel { Title = "Последний измеренный профиль" };   //заголовок графика
-                #region положение и размер графиков, положение текста
-                /*var posYgraf_Sum = double.Parse(INI.ReadINI("grafik_sum", "height"));
-                gridGrafSum.Height = posYgraf_Sum;                
-                LabelfPrfMillPctCenterSumTXT.Margin = new Thickness(20, posYgraf_Sum, 0, 0);
-                LabelfPrfMillPctCenterSum.Margin = new Thickness(20, posYgraf_Sum + 50, 0, 0);
-                LabelfPrfTrimPctWedgeSumTXT.Margin = new Thickness(0, posYgraf_Sum, 20, 0);
-                LabelfPrfTrimPctWedgeSum.Margin = new Thickness(0, posYgraf_Sum + 50, 20, 0);
-                var posYgraf_Actual = double.Parse(INI.ReadINI("grafik_actual", "height"));
-                gridGrafActual.Margin = new Thickness(20, posYgraf_Sum + 135, 20, 0);
-                gridGrafActual.Height = posYgraf_Actual;
-                LabelfPrfMillPctCenterTXT.Margin = new Thickness(20, posYgraf_Sum + posYgraf_Actual + 135, 0, 0);
-                LabelfPrfMillPctCenter.Margin = new Thickness(20, posYgraf_Sum + posYgraf_Actual + 135 + 50, 0, 0);
-                LabelfPrfTrimPctWedgeTXT.Margin = new Thickness(0, posYgraf_Sum + posYgraf_Actual + 135, 20, 0);
-                LabelfPrfTrimPctWedge.Margin = new Thickness(0, posYgraf_Sum + posYgraf_Actual + 135 + 50, 20, 0);
-                */
                 mainForm.Refresh();
-                #endregion
+
                 if (numberScan >= 20) // не может быть больше 20 сканов
                     numberScan = -1;
 

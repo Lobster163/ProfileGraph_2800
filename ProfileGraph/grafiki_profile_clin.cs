@@ -13,7 +13,7 @@ namespace ProfileGraph
             this.AxisY_min = 2.3f;
             this.AxisY_max = 3.1f;
             this.Title_sred = "Средний";
-            this.Title_actual = "Текущий";
+            this.Title_actual = "Последний измеренный профиль";
             this.Points_sred = new List<DataPoint> { new DataPoint(0, 0) };
             this.Points_actual = new List<DataPoint> { new DataPoint(0, 0) };
             this.Points_plus10perc = new List<DataPoint> { new DataPoint(0, 0) };
