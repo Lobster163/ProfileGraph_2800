@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\obj\Debug\
+D:\_Source\_repo_gitHub\ProfileGraph_2800\ProfileGraph\obj\Debug\
 ProfileGraph
 none
 false
 DEBUG;TRACE
-D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\App.xaml
+D:\_Source\_repo_gitHub\ProfileGraph_2800\ProfileGraph\App.xaml
 11151548125
 
-81122300735
-191331755184
+10-1023129708
+191866077920
 MainWindow.xaml;
 
-True
+False
 

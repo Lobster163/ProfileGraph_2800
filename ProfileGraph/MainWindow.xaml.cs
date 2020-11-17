@@ -37,7 +37,7 @@ namespace ProfileGraph
     }
     
 
-    /// <summary>
+    /// <summary>lo
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
@@ -48,9 +48,10 @@ namespace ProfileGraph
         public bool trigerON = false;
         public float maxAx = 0;
         public float minAx = 0;
-
-        IniFile INI = new IniFile("config.ini");
-        private grafik_uhod viewModel_mem = new grafik_uhod(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
+        readonly IniFile INI = new IniFile("config.ini");
+        //private Grafiki_profile_clin viewModel_GrafikSum = new Grafiki_profile_clin(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
+        private Grafik_uhod viewModel_mem = new Grafik_uhod(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
+        
 
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
         unsafe struct structMy  //структура данных в телеграмме - должна совпадать со структорой в wshcgag.c на 2 уровне
@@ -64,11 +65,10 @@ namespace ProfileGraph
         };
 
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        unsafe struct structDataUhod  //структура данных в телеграмме - должна совпадать со структорой в wshcgag.c на 2 уровне
+        unsafe struct StructDataUhod  //структура данных в телеграмме - должна совпадать со структорой в wshcgag.c на 2 уровне
         {
             public fixed float fValues[64];
         };
-        structDataUhod myStruct = new structDataUhod();
 
         //-----------------------------------------------------------------------------------------------------------------------
         //переменные для получение графиков с профилемера
@@ -190,7 +190,7 @@ namespace ProfileGraph
                     dataUhod = newsockUhod.Receive(ref sendUhod);   //принимаем данные из сокета по UDP
                     this.Dispatcher.BeginInvoke(new Action(() =>    //предоставляем доступ из другому потока в основной
                     {
-                        structDataUhod myStruct = new structDataUhod();
+                        StructDataUhod myStruct = new StructDataUhod();
                         myStruct = ByteArrayToNewStuff_u(dataUhod);
                         grafBuilder_UHOD(myStruct);
                     }));
@@ -206,14 +206,14 @@ namespace ProfileGraph
         /// постройка графиков для ухода полосы
         /// </summary>
         /// <param name="dataRECV"></param>
-        unsafe void grafBuilder_UHOD(structDataUhod dataRECV)
+        unsafe void grafBuilder_UHOD(StructDataUhod dataRECV)
         {
-            var viewModel = new grafik_uhod();  
+            var viewModel = new Grafik_uhod();  
             DataContext = viewModel;
             DataContext = viewModel_mem;
             if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON )    //тригер на включение записи
             {
-                viewModel_mem = new grafik_uhod();  
+                viewModel_mem = new Grafik_uhod();  
                 trigerON = true;
             }
             if (dataRECV.fValues[5] < 100.0f && dataRECV.fValues[9] < 100.0f &&
@@ -528,13 +528,13 @@ namespace ProfileGraph
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>
-        structDataUhod ByteArrayToNewStuff_u(byte[] bytes)
+        StructDataUhod ByteArrayToNewStuff_u(byte[] bytes)
         {
             GCHandle handle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
-            structDataUhod stuff;
+            StructDataUhod stuff;
             try
             {
-                stuff = (structDataUhod)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(structDataUhod));
+                stuff = (StructDataUhod)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(StructDataUhod));
             }
             finally
             {

@@ -76,8 +76,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="grafiki_profile_clin.cs" />
-    <Compile Include="grafik_uhod.cs" />
+    <Compile Include="Grafiki_profile_clin.cs" />
+    <Compile Include="Grafik_uhod.cs" />
+    <Compile Include="ViewModel.cs" />
     <Compile Include="IniFiles.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

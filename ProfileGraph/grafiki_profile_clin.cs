@@ -4,9 +4,9 @@ namespace ProfileGraph
     using System.Collections.Generic;
     using OxyPlot;
 
-    public class grafiki_profile_clin
+    public class Grafiki_profile_clin
     {
-        public grafiki_profile_clin()
+        public Grafiki_profile_clin()
         {
             this.AxisX_min = -1100;
             this.AxisX_max = 1100;
@@ -31,6 +31,6 @@ namespace ProfileGraph
         public IList<DataPoint> Points_actual { get; private set; }
         public IList<DataPoint> Points_plus10perc { get; private set; }
         public IList<DataPoint> Points_minus10perc { get; private set; }
-        public IList<DataPoint> Points_set{ get; private set; }
+        public IList<DataPoint> Points_set { get; private set; }
     }
 }
