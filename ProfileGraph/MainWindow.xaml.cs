@@ -49,7 +49,7 @@ namespace ProfileGraph
         public float maxAx = 0;
         public float minAx = 0;
         readonly IniFile INI = new IniFile("config.ini");
-        //private Grafiki_profile_clin viewModel_GrafikSum = new Grafiki_profile_clin(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
+        private Grafiki_profile_clin viewModel_GrafikSum = new Grafiki_profile_clin(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
         private Grafik_uhod viewModel_mem = new Grafik_uhod(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
         
 
@@ -134,10 +134,6 @@ namespace ProfileGraph
         /// <param name="MSG"></param>
         private void WriteDebugLog(string MSG)
         {
-            //StreamWriter Log;
-            //Log = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "debug.log");
-            //Log.WriteLine(MSG);
-            //Log.Close();
         }
 
         /// <summary>
@@ -151,24 +147,9 @@ namespace ProfileGraph
                 {
                     data = newsock.Receive(ref send);   //принимаем данные из сокета по UDP
                     this.Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                        //WriteDebugLog("------ " + DateTime.Now + " ---------------------------------------------------------------------------------");
-                        //WriteDebugLog("длина массива RX: " + data.Length.ToString());
-                        //WriteDebugLog("сырые данные: " + BitConverter.ToString(data,0).Replace("-"," "));                        
+                    {                   
                         structMy myStruct = new structMy();
                         myStruct = ByteArrayToNewStuff(data);
-                        /*
-                        WriteDebugLog("преобразованные данные: ");
-                        WriteDebugLog(myStruct.countPos.ToString());
-                        WriteDebugLog(myStruct.nominal.ToString());
-                        WriteDebugLog(myStruct.fPrfMillPctCenter.ToString());
-                        WriteDebugLog(myStruct.fPrfTrimPctWedge.ToString());
-                        WriteDebugLog(myStruct.position[0].ToString() + ";" + myStruct.position[1].ToString());
-                        string textValues = "";
-                        for(int i=0;i< myStruct.countPos;i++)
-                            textValues = textValues + ";" +myStruct.values[i].ToString();
-                        WriteDebugLog(textValues);
-                        */
                         grafBuilder(myStruct);
                     }));
                 }
@@ -221,12 +202,6 @@ namespace ProfileGraph
                 dataRECV.fValues[45] < 1500.0 && dataRECV.fValues[46] < 1500.0 && trigerON) //выключение тригера записи
             {
                 trigerON = false;
-                /*var printTriger = Int32.Parse(INI.ReadINI("main", "autoPrint"));
-                if (printTriger == 1)
-                {
-                    var dialog = new System.Windows.Controls.PrintDialog();                    
-                    dialog.PrintVisual(mainGrid, "report");
-                }*/
             }
                         
 
@@ -392,7 +367,12 @@ namespace ProfileGraph
         unsafe private void grafBuilder(structMy data)
         {
             try
-            {               
+            {
+                var viewModel = new Grafiki_profile_clin();
+                DataContext = viewModel;
+                DataContext = viewModel_GrafikSum;
+
+
                 var model = new PlotModel { Title = "Последний измеренный профиль" };   //заголовок графика
                 mainForm.Refresh();
 
@@ -553,31 +533,11 @@ namespace ProfileGraph
         }
 
         private void print_test_BTN_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {            
         }
-
-       
 
         private void mainForm_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            /*if (mainForm.Height == 877.0)
-                if (mainForm.Width == 1024.0)
-                {
-                    gridGrafSum.Height = 300;
-                    LabelfPrfMillPctCenterSumTXT.Margin = new Thickness(20, 300, 0, 0);
-                    LabelfPrfMillPctCenterSum.Margin = new Thickness(20, 350, 0, 0);
-                    LabelfPrfTrimPctWedgeSumTXT.Margin = new Thickness(0, 300, 20, 0);
-                    LabelfPrfTrimPctWedgeSum.Margin = new Thickness(0, 350, 20, 0);
-                    gridGrafActual.Margin = new Thickness(20, 435, 20, 0);
-                    gridGrafActual.Height = 435;
-                    LabelfPrfMillPctCenterTXT.Margin = new Thickness(20, 435, 0, 0);
-                    LabelfPrfMillPctCenter.Margin = new Thickness(20, 485, 0, 0);
-                    LabelfPrfTrimPctWedgeTXT.Margin = new Thickness(0, 435, 20, 0);
-                    LabelfPrfTrimPctWedge.Margin = new Thickness(0, 485, 20, 0);
-                    mainForm.Refresh();
-                }
-                */
         }
     }
 }
