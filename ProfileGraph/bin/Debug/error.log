@@ -1,0 +1,402 @@
+------ 29.10.2020 0:04:15 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:04:40 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:05:07 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:05:32 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:05:58 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:06:24 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 0:20:46 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:21:11 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:21:37 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:22:03 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:22:29 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:22:56 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 0:52:50 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:53:16 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:53:42 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 0:54:08 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 0:54:34 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 1:02:27 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 1:02:53 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 1:03:19 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 1:03:44 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 1:04:10 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 1:04:36 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 1:11:03 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 1:11:29 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 1:11:55 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 1:12:21 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 1:12:47 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:36:08 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:36:34 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:37:01 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:37:27 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:37:53 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:38:19 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:38:45 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:39:12 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:39:38 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:48:50 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:49:16 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:49:43 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:50:08 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:50:35 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:51:01 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:51:27 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:51:53 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 2:52:20 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:02:29 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:02:55 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:03:21 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:03:47 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:04:13 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:04:39 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:05:05 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:05:32 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:05:57 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 3:06:21 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 506
+------ 29.10.2020 3:28:12 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:28:38 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:29:05 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:29:30 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:29:58 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:30:24 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:30:50 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:31:21 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:31:44 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:54:00 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:54:26 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:54:53 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:55:19 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:55:45 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:56:12 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:56:38 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:57:04 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 3:57:30 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 5:38:23 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 5:38:49 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 5:39:16 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 5:39:41 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 5:40:07 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 5:40:34 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 5:41:00 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:18:53 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:19:19 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:19:45 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:20:12 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:20:38 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:21:04 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:21:30 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:21:56 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:32:10 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:32:36 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:33:02 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:33:28 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:33:55 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:34:21 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:34:48 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:35:14 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:35:39 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:47:30 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:47:56 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:48:22 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:48:48 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:49:14 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:49:41 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:50:07 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:50:34 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 6:51:00 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:04:29 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:04:55 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:05:21 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:05:47 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:06:13 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:06:40 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:07:06 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:07:32 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:07:59 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:33:29 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:33:54 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:34:21 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:34:47 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:35:13 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:35:39 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:36:06 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:36:32 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 7:36:59 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 512
+------ 29.10.2020 8:34:08 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 471
+------ 29.10.2020 8:34:33 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 471
+------ 29.10.2020 8:35:00 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 471
+------ 29.10.2020 8:35:26 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 471
+------ 29.10.2020 8:35:53 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 471
+------ 29.10.2020 8:36:19 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 471
+------ 29.10.2020 8:36:46 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 471
+------ 29.10.2020 8:37:12 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 471
+------ 29.10.2020 8:37:39 ---------------------------------------------------------------------------------
+System.IndexOutOfRangeException: Индекс находился вне границ массива.
+   в ProfileGraph.MainWindow.grafBuilder(structMy data) в D:\_Source\__Исходники_Работа\ProfileGraph\ProfileGraph\MainWindow.xaml.cs:строка 471
