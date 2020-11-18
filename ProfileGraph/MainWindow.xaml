@@ -19,27 +19,42 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid x:Name="gridGrafActual" VerticalAlignment="Top" Margin="20,320,20,0" Height="250" IsManipulationEnabled="True" Background="#FFDADADA">
+            <Grid x:Name="gridGrafActual" Visibility="Hidden"
+                  VerticalAlignment="Top" Margin="20,320,20,0" Height="250" IsManipulationEnabled="True" Background="#FFDADADA">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <oxy:PlotView x:Name="chartOxy" Background="#FFDADADA" Foreground="White" Focusable="False" Margin="0,-1,20,1" IsTabStop="False" IsEnabled="False"/>
 
             </Grid>
-            <Grid x:Name="gridGrafSum" VerticalAlignment="Top" Margin="20,10,20,0" Height="250" Background="#FFDADADA">
+            <Grid x:Name="gridGrafSum" Visibility="Hidden"
+                  VerticalAlignment="Top" Margin="20,10,20,0" Height="250" Background="#FFDADADA">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <oxy:PlotView x:Name="chartOxySum" Background="#FFDADADA" Margin="0,0,20,0" IsEnabled="False"/>
             </Grid>
-            <Grid x:Name="gridGrafSum_new" Visibility="Hidden" VerticalAlignment="Top" Margin="20,10,20,0" Height="250" IsManipulationEnabled="True" Background="#FFDADADA">
+            <Grid x:Name="gridGrafSum_new" Visibility="Visible" VerticalAlignment="Top" Margin="20,10,20,0" Height="250" IsManipulationEnabled="True" Background="#FFDADADA">
                 <oxy:Plot x:Name="plot_GrafSum" Title="{Binding Grafik_p_c.Title_sred}" IsEnabled="False" TitleFontSize="24" LegendFontSize="17" Background="#FFDADADA" Foreground="White">
                     <oxy:Plot.Axes >
                         <oxy:LinearAxis Position="Bottom" Minimum="{Binding Grafik_p_c.AxisX_min}" Maximum="{Binding Grafik_p_c.AxisX_max}"/>
                         <oxy:LinearAxis Position="Left" Minimum="{Binding Grafik_p_c.AxisY_min}" Maximum="{Binding Grafik_p_c.AxisY_max}" IntervalLength="25"/>
                     </oxy:Plot.Axes>
                     <oxy:Plot.Series>
-                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_sred}" LineStyle="Automatic" StrokeThickness="5" Color="Red" Title="Клеть 1"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_sred}" LineStyle="Automatic" StrokeThickness="5" Color="Red" Title="измеренный"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_plus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_minus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
+                    </oxy:Plot.Series>
+                </oxy:Plot>
+            </Grid>
+            <Grid x:Name="gridGrafActual_new" Visibility="Visible" VerticalAlignment="Top" Margin="20,320,20,0" Height="250" IsManipulationEnabled="True" Background="#FFDADADA">
+                <oxy:Plot x:Name="plot_GrafActual" Title="{Binding Grafik_p_c.Title_actual}" IsEnabled="False" TitleFontSize="24" LegendFontSize="17" Background="#FFDADADA" Foreground="White">
+                    <oxy:Plot.Axes >
+                        <oxy:LinearAxis Position="Bottom" Minimum="{Binding Grafik_p_c.AxisX_min}" Maximum="{Binding Grafik_p_c.AxisX_max}"/>
+                        <oxy:LinearAxis Position="Left" Minimum="{Binding Grafik_p_c.AxisY_min}" Maximum="{Binding Grafik_p_c.AxisY_max}" IntervalLength="25"/>
+                    </oxy:Plot.Axes>
+                    <oxy:Plot.Series>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_actual}" LineStyle="Automatic" StrokeThickness="5" Color="Red" Title="измеренный"/>
                         <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_plus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
                         <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_minus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
                     </oxy:Plot.Series>
