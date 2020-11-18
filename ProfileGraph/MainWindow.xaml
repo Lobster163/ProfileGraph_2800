@@ -26,9 +26,10 @@
                         <oxy:LinearAxis Position="Left" Minimum="{Binding Grafik_p_c.AxisY_min}" Maximum="{Binding Grafik_p_c.AxisY_max}" IntervalLength="25"/>
                     </oxy:Plot.Axes>
                     <oxy:Plot.Series>
-                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_sred}" LineStyle="Automatic" StrokeThickness="5" Color="Green" Title="измеренный"/>
-                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_plus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
-                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_minus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_sred}" LineStyle="Automatic" StrokeThickness="5" Color="Green"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_plus10perc}" LineStyle="Dash" StrokeThickness="2" Color="Black" Title="Max"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_minus10perc}" LineStyle="DashDot" StrokeThickness="2" Color="Black" Title="Min"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_set}" LineStyle="Dot" StrokeThickness="1" Color="Black" Title="Задание"/>
                     </oxy:Plot.Series>
                 </oxy:Plot>
             </Grid>
@@ -39,9 +40,10 @@
                         <oxy:LinearAxis Position="Left" Minimum="{Binding Grafik_p_c.AxisY_min}" Maximum="{Binding Grafik_p_c.AxisY_max}" IntervalLength="25"/>
                     </oxy:Plot.Axes>
                     <oxy:Plot.Series>
-                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_actual}" LineStyle="Automatic" StrokeThickness="5" Color="Red" Title="измеренный"/>
-                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_plus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
-                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_minus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_actual}" LineStyle="Automatic" StrokeThickness="5" Color="Red"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_plus10perc}" LineStyle="Dash" StrokeThickness="2" Color="Black" Title="Max"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_minus10perc}" LineStyle="DashDot" StrokeThickness="2" Color="Black" Title="Min"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_set}" LineStyle="Dot" StrokeThickness="1" Color="Black" Title="Задание"/>
                     </oxy:Plot.Series>
                 </oxy:Plot>
             </Grid>

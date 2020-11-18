@@ -361,6 +361,9 @@ namespace ProfileGraph
                 points.Add(new DataPoint(data.position[0] - 50 * i, grafSum[i]));
             modelGrafikSum.Points_sred = points;
 
+            modelGrafikSum.Points_set = viewModel.Grafik_p_c.Points_set;
+            modelGrafikSum.Points_plus10perc = viewModel.Grafik_p_c.Points_plus10perc;
+            modelGrafikSum.Points_minus10perc = viewModel.Grafik_p_c.Points_minus10perc;
             modelGrafikSum.Points_actual = viewModel.Grafik_p_c.Points_actual;
             modelGrafikSum.AxisX_min = viewModel.Grafik_p_c.AxisX_min;
             modelGrafikSum.AxisX_max = viewModel.Grafik_p_c.AxisX_max;
@@ -438,6 +441,28 @@ namespace ProfileGraph
                         
                 }
                 modelActualGrafika.Points_actual = points;
+
+                //пороги + - setPoint
+                var pointsm = new List<DataPoint>();
+                var pointsp = new List<DataPoint>();
+                points = new List<DataPoint>
+                {
+                    new DataPoint(-1500, data.nominal),
+                    new DataPoint(1500, data.nominal)
+                };
+                for (int i = countScanActual - 1; i >= 0; i--) //создание актуального графика
+                {
+                    int z = data.position[0] - 50 * i;
+                    float y = -(float)Math.Pow(z, 2) / (float)(Math.Pow(950, 2) * data.nominal * 9) + data.nominal * 0.985f;
+                    pointsm.Add(new DataPoint(data.position[0] - 50 * i, y));
+
+                    y = -(float)Math.Pow(z, 2) / (float)(Math.Pow(950, 2) * data.nominal * 9) + data.nominal * 1.005f;
+                    pointsp.Add(new DataPoint(data.position[0] - 50 * i, y));
+                }
+                modelActualGrafika.Points_minus10perc = pointsm;
+                modelActualGrafika.Points_plus10perc = pointsp;
+                modelActualGrafika.Points_set = points;
+                //--------------------------------------------------------------------------
 
                 if (failProfile) //обработка ошибочного профиля
                 {
