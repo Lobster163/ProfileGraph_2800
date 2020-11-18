@@ -94,12 +94,12 @@ namespace ProfileGraph
             InitializeComponent();
 
             var monitor = Screen.AllScreens;    //получаем список мониторов
-            mainForm.Left = -monitor[1].Bounds.Width;   //задаем положение окна
-            mainForm.Top = -monitor[1].Bounds.Height;   //задаем положение окна
-            mainForm.WindowStartupLocation = WindowStartupLocation.Manual; //задаем положение в ручную
+            //mainForm.Left = -monitor[1].Bounds.Width;   //задаем положение окна
+            //mainForm.Top = -monitor[1].Bounds.Height;   //задаем положение окна
+            //mainForm.WindowStartupLocation = WindowStartupLocation.Manual; //задаем положение в ручную
             mainForm.WindowState = WindowState.Normal;  //состояние окна
             mainForm.Show();    //показать окно
-            mainForm.WindowState = WindowState.Maximized;   //разверуть на максимум окно
+            //mainForm.WindowState = WindowState.Maximized;   //разверуть на максимум окно
 
             newsock = new UdpClient(ipep);
             myThread = new Thread(new ThreadStart(udpServer));  //создание нового потока в процессоре
@@ -181,6 +181,7 @@ namespace ProfileGraph
                 {
                     WriteErrorLog("udpServerUhod: " + ex.ToString());
                 }
+                plot1.Refresh();
             }
         }
         
@@ -190,20 +191,22 @@ namespace ProfileGraph
         /// <param name="dataRECV"></param>
         unsafe void grafBuilder_UHOD(StructDataUhod dataRECV)
         {
-            var viewModel = new Grafik_uhod();  
-            DataContext = viewModel;
-            DataContext = viewModel_mem;
-            if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON )    //тригер на включение записи
+            var viewModel = new Grafik_uhod();
+            myModel.Grafik_u = viewModel;
+            myModel.Grafik_u = viewModel_mem;
+            //if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON )    //тригер на включение записи
+            if (dataRECV.fValues[5] > -100.0f && dataRECV.fValues[45] > -100.0 && !trigerON)    //тригер на включение записи
             {
-                viewModel_mem = new Grafik_uhod();  
+                viewModel_mem = new Grafik_uhod();
                 trigerON = true;
             }
-            if (dataRECV.fValues[5] < 100.0f && dataRECV.fValues[9] < 100.0f &&
-                dataRECV.fValues[45] < 1500.0 && dataRECV.fValues[46] < 1500.0 && trigerON) //выключение тригера записи
+            //if (dataRECV.fValues[5] < 100.0f && dataRECV.fValues[9] < 100.0f &&
+            //    dataRECV.fValues[45] < 1500.0 && dataRECV.fValues[46] < 1500.0 && trigerON) //выключение тригера записи
+            if (dataRECV.fValues[5] < -100.0f && dataRECV.fValues[9] < -100.0f &&
+                dataRECV.fValues[45] < -1500.0 && dataRECV.fValues[46] < -1500.0 && trigerON) //выключение тригера записи
             {
                 trigerON = false;
             }
-                        
 
             if (trigerON)  //разрешаем рисовать графики
             {
@@ -255,7 +258,8 @@ namespace ProfileGraph
                 viewModel_mem.Points_4.Add(new DataPoint(viewModel_mem.Points_3.Count + 1, dataRECV.fValues[3]));
                 viewModel_mem.Points_5.Add(new DataPoint(viewModel_mem.Points_3.Count + 1, dataRECV.fValues[4]));
                 viewModel = viewModel_mem;
-            }
+                //myModel.Grafik_u = viewModel_mem;
+            }            
         }
 
         private int numberScan = -1;
@@ -529,15 +533,8 @@ namespace ProfileGraph
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             cicle = false;
-            System.Diagnostics.Process.GetCurrentProcess().Kill(); //принудительно убиваем все процессы и потоки, которые зависят от нашей программы(чистка  ОП)
+            Process.GetCurrentProcess().Kill(); //принудительно убиваем все процессы и потоки, которые зависят от нашей программы(чистка  ОП)
         }
 
-        private void print_test_BTN_Click(object sender, RoutedEventArgs e)
-        {            
-        }
-
-        private void mainForm_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-        }
     }
 }
