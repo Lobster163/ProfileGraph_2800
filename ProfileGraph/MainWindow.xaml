@@ -19,21 +19,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid x:Name="gridGrafActual" Visibility="Hidden"
-                  VerticalAlignment="Top" Margin="20,320,20,0" Height="250" IsManipulationEnabled="True" Background="#FFDADADA">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <oxy:PlotView x:Name="chartOxy" Background="#FFDADADA" Foreground="White" Focusable="False" Margin="0,-1,20,1" IsTabStop="False" IsEnabled="False"/>
-
-            </Grid>
-            <Grid x:Name="gridGrafSum" Visibility="Hidden"
-                  VerticalAlignment="Top" Margin="20,10,20,0" Height="250" Background="#FFDADADA">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <oxy:PlotView x:Name="chartOxySum" Background="#FFDADADA" Margin="0,0,20,0" IsEnabled="False"/>
-            </Grid>
             <Grid x:Name="gridGrafSum_new" Visibility="Visible" VerticalAlignment="Top" Margin="20,10,20,0" Height="250" IsManipulationEnabled="True" Background="#FFDADADA">
                 <oxy:Plot x:Name="plot_GrafSum" Title="{Binding Grafik_p_c.Title_sred}" IsEnabled="False" TitleFontSize="24" LegendFontSize="17" Background="#FFDADADA" Foreground="White">
                     <oxy:Plot.Axes >
@@ -41,7 +26,7 @@
                         <oxy:LinearAxis Position="Left" Minimum="{Binding Grafik_p_c.AxisY_min}" Maximum="{Binding Grafik_p_c.AxisY_max}" IntervalLength="25"/>
                     </oxy:Plot.Axes>
                     <oxy:Plot.Series>
-                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_sred}" LineStyle="Automatic" StrokeThickness="5" Color="Red" Title="измеренный"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_sred}" LineStyle="Automatic" StrokeThickness="5" Color="Green" Title="измеренный"/>
                         <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_plus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
                         <oxy:LineSeries ItemsSource="{Binding Grafik_p_c.Points_minus10perc}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
                     </oxy:Plot.Series>
@@ -71,7 +56,7 @@
             <Label x:Name="LabelfPrfTrimPctWedgeSumTXT" Content="Клин ср %" HorizontalAlignment="Right" Height="74" Margin="0,250,115,0" VerticalAlignment="Top" Width="418" Foreground="#FFFFFDFD" FontSize="40" Cursor="No" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             <Grid x:Name="gridGrafActualUhod_1" VerticalAlignment="Top" Margin="20,630,20,0" Height="300" IsManipulationEnabled="True" Background="#FFDADADA">
                 <oxy:Plot x:Name="plot1" Title="{Binding Grafik_u.Title_1}"
-                          IsEnabled="True" TitleFontSize="24" LegendFontSize="17" Background="#FFDADADA" Foreground="White">
+                          IsEnabled="False" TitleFontSize="24" LegendFontSize="17" Background="#FFDADADA" Foreground="White">
                     <oxy:Plot.Axes >
                         <oxy:LinearAxis Position="Bottom" Minimum="0" Maximum="{Binding Grafik_u.AxisX_max}"/>
                         <oxy:LinearAxis Position="Left" Minimum="{Binding Grafik_u.leftMin_1}" Maximum="{Binding Grafik_u.leftMax_1}" IntervalLength="25"/>

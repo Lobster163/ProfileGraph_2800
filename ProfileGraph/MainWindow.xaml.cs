@@ -49,7 +49,7 @@ namespace ProfileGraph
         public float maxAx = 0;
         public float minAx = 0;
         readonly IniFile INI = new IniFile("config.ini");
-        private Grafiki_profile_clin viewModel_GrafikSum = new Grafiki_profile_clin(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
+        private Grafiki_profile_clin viewModel_GrafikSum = new Grafiki_profile_clin(); // класс для отображения графиков от толщиномера / профилимера
         private Grafik_uhod viewModel_mem = new Grafik_uhod(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
         
 
@@ -134,6 +134,10 @@ namespace ProfileGraph
         /// <param name="MSG"></param>
         private void WriteDebugLog(string MSG)
         {
+            StreamWriter Log;
+            Log = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "debug.log");
+            Log.WriteLine(MSG);
+            Log.Close();
         }
 
         /// <summary>
@@ -150,6 +154,11 @@ namespace ProfileGraph
                     {                   
                         structMy myStruct = new structMy();
                         myStruct = ByteArrayToNewStuff(data);
+                        WriteDebugLog(myStruct.countPos.ToString());
+                        WriteDebugLog(myStruct.nominal.ToString());
+                        WriteDebugLog(myStruct.fPrfMillPctCenter.ToString());
+                        WriteDebugLog(myStruct.fPrfTrimPctWedge.ToString());
+                        WriteDebugLog(myStruct.position[0].ToString() + "\t " + myStruct.position[1].ToString());
                         grafBuilder(myStruct);
                     }));
                 }
@@ -172,10 +181,12 @@ namespace ProfileGraph
                     dataUhod = newsockUhod.Receive(ref sendUhod);   //принимаем данные из сокета по UDP
                     this.Dispatcher.BeginInvoke(new Action(() =>    //предоставляем доступ из другому потока в основной
                     {
+                        
                         StructDataUhod myStruct = new StructDataUhod();
                         myStruct = ByteArrayToNewStuff_u(dataUhod);
                         grafBuilder_UHOD(myStruct);
                     }));
+                    this.Refresh();
                 }
                 catch (Exception ex) // обработки ошибки
                 {
@@ -191,10 +202,10 @@ namespace ProfileGraph
         unsafe void grafBuilder_UHOD(StructDataUhod dataRECV)
         {
             var viewModel = DataContext as ViewModel;
-            DataContext = new ViewModel();
+            //DataContext = new ViewModel();
             if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON )    //тригер на включение записи
             //if (dataRECV.fValues[5] > -100.0f && dataRECV.fValues[45] > -100.0 && !trigerON)    //тригер на включение записи DEBUG
-            {
+            {                
                 viewModel_mem = new Grafik_uhod();
                 trigerON = true;
             }
@@ -210,6 +221,7 @@ namespace ProfileGraph
 
             if (trigerON)  //разрешаем рисовать графики
             {
+                DataContext = new ViewModel();
                 if (viewModel_mem.Points_1.Count > 800)     //если кол-во точек больше 800, то расширяем график на +1 точку
                     viewModel_mem.AxisX_max = viewModel_mem.AxisX_max + 1;
 
@@ -295,7 +307,6 @@ namespace ProfileGraph
         /// </summary>
         unsafe private void grafBuilderSum(structMy data)
         {
-
             var viewModel = DataContext as ViewModel;
             DataContext = new ViewModel();
             var modelGrafikSum = new Grafiki_profile_clin();
@@ -345,11 +356,16 @@ namespace ProfileGraph
             LabelfPrfMillPctCenterSum.Content = String.Format("{0:0.000}", profilePrcSum);
             LabelfPrfTrimPctWedgeSum.Content = String.Format("{0:0.000}", klinPrcSum);
 
-
+            IList<DataPoint> points = new List<DataPoint>();
             for (int i = countScanActual - 1; i >= 0; i--)  //отрисовка графика
-                modelGrafikSum.Points_sred.Add(new DataPoint(data.position[1] + 50 * i, grafSum[i]));
+                points.Add(new DataPoint(data.position[0] - 50 * i, grafSum[i]));
+            modelGrafikSum.Points_sred = points;
 
             modelGrafikSum.Points_actual = viewModel.Grafik_p_c.Points_actual;
+            modelGrafikSum.AxisX_min = viewModel.Grafik_p_c.AxisX_min;
+            modelGrafikSum.AxisX_max = viewModel.Grafik_p_c.AxisX_max;
+            modelGrafikSum.AxisY_min = viewModel.Grafik_p_c.AxisY_min;
+            modelGrafikSum.AxisY_max = viewModel.Grafik_p_c.AxisY_max;
             viewModel.Grafik_p_c = modelGrafikSum;
             DataContext = viewModel;
         }
@@ -388,8 +404,8 @@ namespace ProfileGraph
                 else if (numberScan == 1)
                 {
                     countScanActual = data.countPos;    //установка кол-во сканов по 2м профилю
-                    positionMain[0] = data.position[0];
-                    positionMain[1] = data.position[1];
+                    positionMain[0] = data.position[0]; //расстояние правой кромки от центра
+                    positionMain[1] = data.position[1]; //расстояние левой кромки от центра
                 }
 
                 labelNumber.Content = "Номер профиля: " + (numberScan + 1).ToString();   
@@ -400,13 +416,14 @@ namespace ProfileGraph
                 double maxDopusk = data.nominal + (data.nominal * float.Parse(INI.ReadINI("main", "dopuskUp")) / 100.0); //4%
                 bool failProfile = false;   //ошибочный профиль
 
+                IList<DataPoint> points = new List<DataPoint>();
                 for (int i = countScanActual - 1; i >= 0; i--) //создание актуального графика
                 {
-                    if (data.values[i] < maxDopusk && data.values[i] > minDopusk 
-                        && !failProfile 
-                        && data.countPos == countScanActual
-                        && data.position[0] == positionMain[0]
-                        && data.position[1] == positionMain[1]
+                    if (data.values[i] < maxDopusk && data.values[i] > minDopusk //проверка допуска
+                        && !failProfile     // проверка на ошибочный профиль
+                        && data.countPos == countScanActual //кол-во сканов
+                        && data.position[0] == positionMain[0]  //расстояние 1
+                        && data.position[1] == positionMain[1]  //расстояние 2
                         )   //если в допуске и не ошибочный профиль, и кол-во точек равно кол-ву на 2 профиле
                     {
                         if (numberScan != 0)
@@ -417,9 +434,11 @@ namespace ProfileGraph
                         failProfile = true;
 
                     //рисуем график
-                    modelActualGrafika.Points_actual.Add(new DataPoint(data.position[1] + 50 * i, data.values[i]));                   
+                    points.Add(new DataPoint(data.position[0] - 50 * i, data.values[i]));                  
                         
                 }
+                modelActualGrafika.Points_actual = points;
+
                 if (failProfile) //обработка ошибочного профиля
                 {
                     for (int i = countScanActual - 1; i >= 0; i--)
@@ -427,8 +446,8 @@ namespace ProfileGraph
                         if (numberScan != 0)
                             scansData[numberScan, i] = scansData[numberScan - 1, i];    //запись в текущий скан предыдущего  профиля
                     }
-                    scansData[numberScan, countScanActual + 1] = -99; 
-                    scansData[numberScan, countScanActual + 2] = -99;
+                    scansData[numberScan, countScanActual + 1] = 0; 
+                    scansData[numberScan, countScanActual + 2] = 0;
                     failProfile = false;
                 }
                 else
@@ -436,6 +455,7 @@ namespace ProfileGraph
                     scansData[numberScan, countScanActual + 1] = data.fPrfMillPctCenter;
                     scansData[numberScan, countScanActual + 2] = data.fPrfTrimPctWedge;
                 }
+                
 
                 modelActualGrafika.Points_sred = viewModel.Grafik_p_c.Points_sred;
                 viewModel.Grafik_p_c = modelActualGrafika;
@@ -515,3 +535,4 @@ namespace ProfileGraph
 
     }
 }
+
