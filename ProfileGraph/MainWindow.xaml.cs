@@ -192,16 +192,18 @@ namespace ProfileGraph
         {
             var viewModel = DataContext as ViewModel;
             DataContext = new ViewModel();
-            //if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON )    //тригер на включение записи
-            if (dataRECV.fValues[5] > -100.0f && dataRECV.fValues[45] > -100.0 && !trigerON)    //тригер на включение записи
+            if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON )    //тригер на включение записи
+            //if (dataRECV.fValues[5] > -100.0f && dataRECV.fValues[45] > -100.0 && !trigerON)    //тригер на включение записи DEBUG
             {
                 viewModel_mem = new Grafik_uhod();
                 trigerON = true;
             }
-            //if (dataRECV.fValues[5] < 100.0f && dataRECV.fValues[9] < 100.0f &&
-            //    dataRECV.fValues[45] < 1500.0 && dataRECV.fValues[46] < 1500.0 && trigerON) //выключение тригера записи
-            if (dataRECV.fValues[5] < -100.0f && dataRECV.fValues[9] < -100.0f &&
+            if (dataRECV.fValues[5] < 100.0f && dataRECV.fValues[9] < 100.0f &&
+                dataRECV.fValues[45] < 1500.0 && dataRECV.fValues[46] < 1500.0 && trigerON) //выключение тригера записи
+            /*debug 
+             * if (dataRECV.fValues[5] < -100.0f && dataRECV.fValues[9] < -100.0f &&
                 dataRECV.fValues[45] < -1500.0 && dataRECV.fValues[46] < -1500.0 && trigerON) //выключение тригера записи
+            */
             {
                 trigerON = false;
             }
@@ -293,15 +295,11 @@ namespace ProfileGraph
         /// </summary>
         unsafe private void grafBuilderSum(structMy data)
         {
-            var model = new PlotModel { Title = "Усредненный график" };
-            model.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Minimum = -1200, Maximum = 1200 });
-            model.Axes.Add(new LinearAxis
-            {
-                Position = AxisPosition.Left,
-                Minimum = chartOxy.Model.Axes[1].Minimum,
-                Maximum = chartOxy.Model.Axes[1].Maximum,
-            });
 
+            var viewModel = DataContext as ViewModel;
+            DataContext = new ViewModel();
+            var modelGrafikSum = new Grafiki_profile_clin();
+            
             double[] grafSum = new double[countScanActual + 1];
             double profilePrcSum = 0.0;
             double klinPrcSum = 0.0;
@@ -347,19 +345,13 @@ namespace ProfileGraph
             LabelfPrfMillPctCenterSum.Content = String.Format("{0:0.000}", profilePrcSum);
             LabelfPrfTrimPctWedgeSum.Content = String.Format("{0:0.000}", klinPrcSum);
 
-            LineSeries lineSeries = new LineSeries();
-            for (int i = countScanActual-1; i >= 0; i--)  //отрисовка графика
-                lineSeries.Points.Add(new DataPoint(data.position[1] + 50 * i, grafSum[i]));
 
-            var ttt = INI.ReadINI("grafik_sum", "thickness");
-            lineSeries.StrokeThickness = Double.Parse(INI.ReadINI("grafik_sum", "thickness"));    //толщина линии
-            lineSeries.Color = OxyColor.FromRgb(
-                byte.Parse(INI.ReadINI("grafik_sum", "colorR")),
-                byte.Parse(INI.ReadINI("grafik_sum", "colorG")),
-                byte.Parse(INI.ReadINI("grafik_sum", "colorB"))
-                );
-            model.Series.Add(lineSeries);
-            chartOxySum.Model = model;
+            for (int i = countScanActual - 1; i >= 0; i--)  //отрисовка графика
+                modelGrafikSum.Points_sred.Add(new DataPoint(data.position[1] + 50 * i, grafSum[i]));
+
+            modelGrafikSum.Points_actual = viewModel.Grafik_p_c.Points_actual;
+            viewModel.Grafik_p_c = modelGrafikSum;
+            DataContext = viewModel;
         }
 
         /// <summary>
@@ -370,13 +362,14 @@ namespace ProfileGraph
         {
             try
             {
-                var viewModel = new Grafiki_profile_clin();
-                DataContext = viewModel;
-                DataContext = viewModel_GrafikSum;
+                var viewModel = DataContext as ViewModel;
+                DataContext = new ViewModel();
+                var modelActualGrafika = new Grafiki_profile_clin();
 
-
-                var model = new PlotModel { Title = "Последний измеренный профиль" };   //заголовок графика
-                mainForm.Refresh();
+                modelActualGrafika.AxisX_min = -1200;
+                modelActualGrafika.AxisX_max = 1200;
+                modelActualGrafika.AxisY_min = (float)(data.nominal - (data.nominal * float.Parse(INI.ReadINI("main", "scaleDown")) / 100.0));
+                modelActualGrafika.AxisY_max = (float)(data.nominal + (data.nominal * float.Parse(INI.ReadINI("main", "scaleUp")) / 100.0));
 
                 if (numberScan >= 20) // не может быть больше 20 сканов
                     numberScan = -1;
@@ -399,15 +392,7 @@ namespace ProfileGraph
                     positionMain[1] = data.position[1];
                 }
 
-                labelNumber.Content = "Номер профиля: " + (numberScan + 1).ToString();
-                model.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Minimum = -1200, Maximum = 1200 }); //границы по ширине 
-                model.Axes.Add(new LinearAxis   //границы по высоте
-                {
-                    Position = AxisPosition.Left,
-                    Minimum = data.nominal - (data.nominal * float.Parse(INI.ReadINI("main", "scaleDown"))/100.0),
-                    Maximum = data.nominal + (data.nominal * float.Parse(INI.ReadINI("main", "scaleUp")) / 100.0)
-                });
-
+                labelNumber.Content = "Номер профиля: " + (numberScan + 1).ToString();   
                 LabelfPrfMillPctCenter.Content = String.Format("{0:0.000}", data.fPrfMillPctCenter);
                 LabelfPrfTrimPctWedge.Content = String.Format("{0:0.000}", data.fPrfTrimPctWedge);
                 //допуск для отбраковки профиля по допуску +-
@@ -415,7 +400,6 @@ namespace ProfileGraph
                 double maxDopusk = data.nominal + (data.nominal * float.Parse(INI.ReadINI("main", "dopuskUp")) / 100.0); //4%
                 bool failProfile = false;   //ошибочный профиль
 
-                LineSeries lineSeries = new LineSeries();
                 for (int i = countScanActual - 1; i >= 0; i--) //создание актуального графика
                 {
                     if (data.values[i] < maxDopusk && data.values[i] > minDopusk 
@@ -433,7 +417,8 @@ namespace ProfileGraph
                         failProfile = true;
 
                     //рисуем график
-                    lineSeries.Points.Add(new DataPoint(data.position[1] + 50 * i, data.values[i]));
+                    modelActualGrafika.Points_actual.Add(new DataPoint(data.position[1] + 50 * i, data.values[i]));                   
+                        
                 }
                 if (failProfile) //обработка ошибочного профиля
                 {
@@ -452,15 +437,9 @@ namespace ProfileGraph
                     scansData[numberScan, countScanActual + 2] = data.fPrfTrimPctWedge;
                 }
 
-                lineSeries.StrokeThickness = Double.Parse(INI.ReadINI("grafik_actual", "thickness"));    //толщина линии
-                lineSeries.Color = OxyColor.FromRgb(
-                    byte.Parse(INI.ReadINI("grafik_actual", "colorR")),
-                    byte.Parse(INI.ReadINI("grafik_actual", "colorG")),
-                    byte.Parse(INI.ReadINI("grafik_actual", "colorB"))
-                    );
-                model.Series.Add(lineSeries);   //добавляем график в модель
-                chartOxy.Model = model; //выводим график
-                chartOxy.Refresh();
+                modelActualGrafika.Points_sred = viewModel.Grafik_p_c.Points_sred;
+                viewModel.Grafik_p_c = modelActualGrafika;
+                DataContext = viewModel;
 
                 if (numberScan >=1)
                     grafBuilderSum(data);   //вызываем метод для отрисовки среднего графика
