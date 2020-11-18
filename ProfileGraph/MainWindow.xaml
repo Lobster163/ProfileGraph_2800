@@ -55,13 +55,14 @@
             <Label x:Name="LabelfPrfMillPctCenterSumTXT" Content="Профиль ср %" HorizontalAlignment="Left" Height="74" Margin="-24,250,0,0" VerticalAlignment="Top" Width="420" Foreground="#FFFFFDFD" FontSize="40" Cursor="No" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             <Label x:Name="LabelfPrfTrimPctWedgeSumTXT" Content="Клин ср %" HorizontalAlignment="Right" Height="74" Margin="0,250,115,0" VerticalAlignment="Top" Width="418" Foreground="#FFFFFDFD" FontSize="40" Cursor="No" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             <Grid x:Name="gridGrafActualUhod_1" VerticalAlignment="Top" Margin="20,630,20,0" Height="300" IsManipulationEnabled="True" Background="#FFDADADA">
-                <oxy:Plot x:Name="plot1" Title="{Binding Path=Grafik_u.Title_1}" IsEnabled="True" TitleFontSize="24" LegendFontSize="17" Background="#FFDADADA" Foreground="White">
+                <oxy:Plot x:Name="plot1" Title="{Binding Grafik_u.Title_1}"
+                          IsEnabled="True" TitleFontSize="24" LegendFontSize="17" Background="#FFDADADA" Foreground="White">
                     <oxy:Plot.Axes >
                         <oxy:LinearAxis Position="Bottom" Minimum="0" Maximum="{Binding Grafik_u.AxisX_max}"/>
                         <oxy:LinearAxis Position="Left" Minimum="{Binding Grafik_u.leftMin_1}" Maximum="{Binding Grafik_u.leftMax_1}" IntervalLength="25"/>
                     </oxy:Plot.Axes>
                     <oxy:Plot.Series>
-                        <oxy:LineSeries ItemsSource="{Binding Path=Grafik_u.Points_1}" LineStyle="Automatic" StrokeThickness="5" Color="Red" Title="Клеть 1"/>
+                        <oxy:LineSeries ItemsSource="{Binding Grafik_u.Points_1}" LineStyle="Automatic" StrokeThickness="5" Color="Red" Title="Клеть 1"/>
                         <oxy:LineSeries ItemsSource="{Binding Grafik_u.Points_0}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
                         <oxy:LineSeries ItemsSource="{Binding Grafik_u.Points_100}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />
                         <oxy:LineSeries ItemsSource="{Binding Grafik_u.Points_m100}" LineStyle="Automatic" StrokeThickness="1" Color="Black" />

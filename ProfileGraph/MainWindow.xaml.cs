@@ -181,7 +181,6 @@ namespace ProfileGraph
                 {
                     WriteErrorLog("udpServerUhod: " + ex.ToString());
                 }
-                plot1.Refresh();
             }
         }
         
@@ -191,9 +190,8 @@ namespace ProfileGraph
         /// <param name="dataRECV"></param>
         unsafe void grafBuilder_UHOD(StructDataUhod dataRECV)
         {
-            var viewModel = new Grafik_uhod();
-            myModel.Grafik_u = viewModel;
-            myModel.Grafik_u = viewModel_mem;
+            var viewModel = DataContext as ViewModel;
+            DataContext = new ViewModel();
             //if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON )    //тригер на включение записи
             if (dataRECV.fValues[5] > -100.0f && dataRECV.fValues[45] > -100.0 && !trigerON)    //тригер на включение записи
             {
@@ -257,8 +255,8 @@ namespace ProfileGraph
                 viewModel_mem.Points_3.Add(new DataPoint(viewModel_mem.Points_3.Count + 1, dataRECV.fValues[2]));
                 viewModel_mem.Points_4.Add(new DataPoint(viewModel_mem.Points_3.Count + 1, dataRECV.fValues[3]));
                 viewModel_mem.Points_5.Add(new DataPoint(viewModel_mem.Points_3.Count + 1, dataRECV.fValues[4]));
-                viewModel = viewModel_mem;
-                //myModel.Grafik_u = viewModel_mem;
+                viewModel.Grafik_u = viewModel_mem;
+                DataContext = viewModel;
             }            
         }
 
