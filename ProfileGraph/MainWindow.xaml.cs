@@ -49,7 +49,7 @@ namespace ProfileGraph
         public float maxAx = 0;
         public float minAx = 0;
         readonly IniFile INI = new IniFile("config.ini");
-        //private Grafiki_profile_clin viewModel_GrafikSum = new Grafiki_profile_clin(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
+        private Grafiki_profile_clin viewModel_GrafikSum = new Grafiki_profile_clin(); // класс для отображения графиков от толщиномера / профилимера
         private Grafik_uhod viewModel_mem = new Grafik_uhod(); // класс для отображения графика ухода полосы 1 /2 /3 /4 /5 клеть
         
 
@@ -94,12 +94,12 @@ namespace ProfileGraph
             InitializeComponent();
 
             var monitor = Screen.AllScreens;    //получаем список мониторов
-            mainForm.Left = -monitor[1].Bounds.Width;   //задаем положение окна
-            mainForm.Top = -monitor[1].Bounds.Height;   //задаем положение окна
-            mainForm.WindowStartupLocation = WindowStartupLocation.Manual; //задаем положение в ручную
+            //mainForm.Left = -monitor[1].Bounds.Width;   //задаем положение окна
+            //mainForm.Top = -monitor[1].Bounds.Height;   //задаем положение окна
+            //mainForm.WindowStartupLocation = WindowStartupLocation.Manual; //задаем положение в ручную
             mainForm.WindowState = WindowState.Normal;  //состояние окна
             mainForm.Show();    //показать окно
-            mainForm.WindowState = WindowState.Maximized;   //разверуть на максимум окно
+            //mainForm.WindowState = WindowState.Maximized;   //разверуть на максимум окно
 
             newsock = new UdpClient(ipep);
             myThread = new Thread(new ThreadStart(udpServer));  //создание нового потока в процессоре
@@ -134,10 +134,10 @@ namespace ProfileGraph
         /// <param name="MSG"></param>
         private void WriteDebugLog(string MSG)
         {
-            //StreamWriter Log;
-            //Log = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "debug.log");
-            //Log.WriteLine(MSG);
-            //Log.Close();
+            StreamWriter Log;
+            Log = File.AppendText(AppDomain.CurrentDomain.BaseDirectory + "debug.log");
+            Log.WriteLine(MSG);
+            Log.Close();
         }
 
         /// <summary>
@@ -151,23 +151,14 @@ namespace ProfileGraph
                 {
                     data = newsock.Receive(ref send);   //принимаем данные из сокета по UDP
                     this.Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                        WriteDebugLog("------ " + DateTime.Now + " ---------------------------------------------------------------------------------");
-                        WriteDebugLog("длина массива RX: " + data.Length.ToString());
-                        WriteDebugLog("сырые данные: " + BitConverter.ToString(data,0).Replace("-"," "));                        
+                    {                   
                         structMy myStruct = new structMy();
                         myStruct = ByteArrayToNewStuff(data);
-                        WriteDebugLog("преобразованные данные: ");
                         WriteDebugLog(myStruct.countPos.ToString());
                         WriteDebugLog(myStruct.nominal.ToString());
                         WriteDebugLog(myStruct.fPrfMillPctCenter.ToString());
                         WriteDebugLog(myStruct.fPrfTrimPctWedge.ToString());
-                        WriteDebugLog(myStruct.position[0].ToString() + ";" + myStruct.position[1].ToString());
-                        string textValues = "";
-                        for(int i=0;i< myStruct.countPos;i++)
-                            textValues = textValues + ";" +myStruct.values[i].ToString();
-
-                        WriteDebugLog(textValues);
+                        WriteDebugLog(myStruct.position[0].ToString() + "\t " + myStruct.position[1].ToString());
                         grafBuilder(myStruct);
                     }));
                 }
@@ -190,10 +181,12 @@ namespace ProfileGraph
                     dataUhod = newsockUhod.Receive(ref sendUhod);   //принимаем данные из сокета по UDP
                     this.Dispatcher.BeginInvoke(new Action(() =>    //предоставляем доступ из другому потока в основной
                     {
+                        
                         StructDataUhod myStruct = new StructDataUhod();
                         myStruct = ByteArrayToNewStuff_u(dataUhod);
                         grafBuilder_UHOD(myStruct);
                     }));
+                    this.Refresh();
                 }
                 catch (Exception ex) // обработки ошибки
                 {
@@ -208,29 +201,27 @@ namespace ProfileGraph
         /// <param name="dataRECV"></param>
         unsafe void grafBuilder_UHOD(StructDataUhod dataRECV)
         {
-            var viewModel = new Grafik_uhod();  
-            DataContext = viewModel;
-            DataContext = viewModel_mem;
+            var viewModel = DataContext as ViewModel;
+            //DataContext = new ViewModel();
             if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON )    //тригер на включение записи
-            {
-                viewModel_mem = new Grafik_uhod();  
+            //if (dataRECV.fValues[5] > -100.0f && dataRECV.fValues[45] > -100.0 && !trigerON)    //тригер на включение записи DEBUG
+            {                
+                viewModel_mem = new Grafik_uhod();
                 trigerON = true;
             }
             if (dataRECV.fValues[5] < 100.0f && dataRECV.fValues[9] < 100.0f &&
                 dataRECV.fValues[45] < 1500.0 && dataRECV.fValues[46] < 1500.0 && trigerON) //выключение тригера записи
+            /*debug 
+             * if (dataRECV.fValues[5] < -100.0f && dataRECV.fValues[9] < -100.0f &&
+                dataRECV.fValues[45] < -1500.0 && dataRECV.fValues[46] < -1500.0 && trigerON) //выключение тригера записи
+            */
             {
                 trigerON = false;
-                /*var printTriger = Int32.Parse(INI.ReadINI("main", "autoPrint"));
-                if (printTriger == 1)
-                {
-                    var dialog = new System.Windows.Controls.PrintDialog();                    
-                    dialog.PrintVisual(mainGrid, "report");
-                }*/
             }
-                        
 
             if (trigerON)  //разрешаем рисовать графики
             {
+                DataContext = new ViewModel();
                 if (viewModel_mem.Points_1.Count > 800)     //если кол-во точек больше 800, то расширяем график на +1 точку
                     viewModel_mem.AxisX_max = viewModel_mem.AxisX_max + 1;
 
@@ -278,8 +269,9 @@ namespace ProfileGraph
                 viewModel_mem.Points_3.Add(new DataPoint(viewModel_mem.Points_3.Count + 1, dataRECV.fValues[2]));
                 viewModel_mem.Points_4.Add(new DataPoint(viewModel_mem.Points_3.Count + 1, dataRECV.fValues[3]));
                 viewModel_mem.Points_5.Add(new DataPoint(viewModel_mem.Points_3.Count + 1, dataRECV.fValues[4]));
-                viewModel = viewModel_mem;
-            }
+                viewModel.Grafik_u = viewModel_mem;
+                DataContext = viewModel;
+            }            
         }
 
         private int numberScan = -1;
@@ -315,15 +307,10 @@ namespace ProfileGraph
         /// </summary>
         unsafe private void grafBuilderSum(structMy data)
         {
-            var model = new PlotModel { Title = "Усредненный график" };
-            model.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Minimum = -1200, Maximum = 1200 });
-            model.Axes.Add(new LinearAxis
-            {
-                Position = AxisPosition.Left,
-                Minimum = chartOxy.Model.Axes[1].Minimum,
-                Maximum = chartOxy.Model.Axes[1].Maximum,
-            });
-
+            var viewModel = DataContext as ViewModel;
+            DataContext = new ViewModel();
+            var modelGrafikSum = new Grafiki_profile_clin();
+            
             double[] grafSum = new double[countScanActual + 1];
             double profilePrcSum = 0.0;
             double klinPrcSum = 0.0;
@@ -369,19 +356,21 @@ namespace ProfileGraph
             LabelfPrfMillPctCenterSum.Content = String.Format("{0:0.000}", profilePrcSum);
             LabelfPrfTrimPctWedgeSum.Content = String.Format("{0:0.000}", klinPrcSum);
 
-            LineSeries lineSeries = new LineSeries();
-            for (int i = countScanActual-1; i >= 0; i--)  //отрисовка графика
-                lineSeries.Points.Add(new DataPoint(data.position[1] + 50 * i, grafSum[i]));
+            IList<DataPoint> points = new List<DataPoint>();
+            for (int i = countScanActual - 1; i >= 0; i--)  //отрисовка графика
+                points.Add(new DataPoint(data.position[0] - 50 * i, grafSum[i]));
+            modelGrafikSum.Points_sred = points;
 
-            var ttt = INI.ReadINI("grafik_sum", "thickness");
-            lineSeries.StrokeThickness = Double.Parse(INI.ReadINI("grafik_sum", "thickness"));    //толщина линии
-            lineSeries.Color = OxyColor.FromRgb(
-                byte.Parse(INI.ReadINI("grafik_sum", "colorR")),
-                byte.Parse(INI.ReadINI("grafik_sum", "colorG")),
-                byte.Parse(INI.ReadINI("grafik_sum", "colorB"))
-                );
-            model.Series.Add(lineSeries);
-            chartOxySum.Model = model;
+            modelGrafikSum.Points_set = viewModel.Grafik_p_c.Points_set;
+            modelGrafikSum.Points_plus10perc = viewModel.Grafik_p_c.Points_plus10perc;
+            modelGrafikSum.Points_minus10perc = viewModel.Grafik_p_c.Points_minus10perc;
+            modelGrafikSum.Points_actual = viewModel.Grafik_p_c.Points_actual;
+            modelGrafikSum.AxisX_min = viewModel.Grafik_p_c.AxisX_min;
+            modelGrafikSum.AxisX_max = viewModel.Grafik_p_c.AxisX_max;
+            modelGrafikSum.AxisY_min = viewModel.Grafik_p_c.AxisY_min;
+            modelGrafikSum.AxisY_max = viewModel.Grafik_p_c.AxisY_max;
+            viewModel.Grafik_p_c = modelGrafikSum;
+            DataContext = viewModel;
         }
 
         /// <summary>
@@ -392,24 +381,15 @@ namespace ProfileGraph
         {
             try
             {
-                var model = new PlotModel { Title = "Последний измеренный профиль" };   //заголовок графика
-                #region положение и размер графиков, положение текста
-                /*var posYgraf_Sum = double.Parse(INI.ReadINI("grafik_sum", "height"));
-                gridGrafSum.Height = posYgraf_Sum;                
-                LabelfPrfMillPctCenterSumTXT.Margin = new Thickness(20, posYgraf_Sum, 0, 0);
-                LabelfPrfMillPctCenterSum.Margin = new Thickness(20, posYgraf_Sum + 50, 0, 0);
-                LabelfPrfTrimPctWedgeSumTXT.Margin = new Thickness(0, posYgraf_Sum, 20, 0);
-                LabelfPrfTrimPctWedgeSum.Margin = new Thickness(0, posYgraf_Sum + 50, 20, 0);
-                var posYgraf_Actual = double.Parse(INI.ReadINI("grafik_actual", "height"));
-                gridGrafActual.Margin = new Thickness(20, posYgraf_Sum + 135, 20, 0);
-                gridGrafActual.Height = posYgraf_Actual;
-                LabelfPrfMillPctCenterTXT.Margin = new Thickness(20, posYgraf_Sum + posYgraf_Actual + 135, 0, 0);
-                LabelfPrfMillPctCenter.Margin = new Thickness(20, posYgraf_Sum + posYgraf_Actual + 135 + 50, 0, 0);
-                LabelfPrfTrimPctWedgeTXT.Margin = new Thickness(0, posYgraf_Sum + posYgraf_Actual + 135, 20, 0);
-                LabelfPrfTrimPctWedge.Margin = new Thickness(0, posYgraf_Sum + posYgraf_Actual + 135 + 50, 20, 0);
-                */
-                mainForm.Refresh();
-                #endregion
+                var viewModel = DataContext as ViewModel;
+                DataContext = new ViewModel();
+                var modelActualGrafika = new Grafiki_profile_clin();
+
+                modelActualGrafika.AxisX_min = -1200;
+                modelActualGrafika.AxisX_max = 1200;
+                modelActualGrafika.AxisY_min = (float)(data.nominal - (data.nominal * float.Parse(INI.ReadINI("main", "scaleDown")) / 100.0));
+                modelActualGrafika.AxisY_max = (float)(data.nominal + (data.nominal * float.Parse(INI.ReadINI("main", "scaleUp")) / 100.0));
+
                 if (numberScan >= 20) // не может быть больше 20 сканов
                     numberScan = -1;
 
@@ -427,19 +407,11 @@ namespace ProfileGraph
                 else if (numberScan == 1)
                 {
                     countScanActual = data.countPos;    //установка кол-во сканов по 2м профилю
-                    positionMain[0] = data.position[0];
-                    positionMain[1] = data.position[1];
+                    positionMain[0] = data.position[0]; //расстояние правой кромки от центра
+                    positionMain[1] = data.position[1]; //расстояние левой кромки от центра
                 }
 
-                labelNumber.Content = "Номер профиля: " + (numberScan + 1).ToString();
-                model.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Minimum = -1200, Maximum = 1200 }); //границы по ширине 
-                model.Axes.Add(new LinearAxis   //границы по высоте
-                {
-                    Position = AxisPosition.Left,
-                    Minimum = data.nominal - (data.nominal * float.Parse(INI.ReadINI("main", "scaleDown"))/100.0),
-                    Maximum = data.nominal + (data.nominal * float.Parse(INI.ReadINI("main", "scaleUp")) / 100.0)
-                });
-
+                labelNumber.Content = "Номер профиля: " + (numberScan + 1).ToString();   
                 LabelfPrfMillPctCenter.Content = String.Format("{0:0.000}", data.fPrfMillPctCenter);
                 LabelfPrfTrimPctWedge.Content = String.Format("{0:0.000}", data.fPrfTrimPctWedge);
                 //допуск для отбраковки профиля по допуску +-
@@ -447,14 +419,14 @@ namespace ProfileGraph
                 double maxDopusk = data.nominal + (data.nominal * float.Parse(INI.ReadINI("main", "dopuskUp")) / 100.0); //4%
                 bool failProfile = false;   //ошибочный профиль
 
-                LineSeries lineSeries = new LineSeries();
+                IList<DataPoint> points = new List<DataPoint>();
                 for (int i = countScanActual - 1; i >= 0; i--) //создание актуального графика
                 {
-                    if (data.values[i] < maxDopusk && data.values[i] > minDopusk 
-                        && !failProfile 
-                        && data.countPos == countScanActual
-                        && data.position[0] == positionMain[0]
-                        && data.position[1] == positionMain[1]
+                    if (data.values[i] < maxDopusk && data.values[i] > minDopusk //проверка допуска
+                        && !failProfile     // проверка на ошибочный профиль
+                        && data.countPos == countScanActual //кол-во сканов
+                        && data.position[0] == positionMain[0]  //расстояние 1
+                        && data.position[1] == positionMain[1]  //расстояние 2
                         )   //если в допуске и не ошибочный профиль, и кол-во точек равно кол-ву на 2 профиле
                     {
                         if (numberScan != 0)
@@ -465,8 +437,33 @@ namespace ProfileGraph
                         failProfile = true;
 
                     //рисуем график
-                    lineSeries.Points.Add(new DataPoint(data.position[1] + 50 * i, data.values[i]));
+                    points.Add(new DataPoint(data.position[0] - 50 * i, data.values[i]));                  
+                        
                 }
+                modelActualGrafika.Points_actual = points;
+
+                //пороги + - setPoint
+                var pointsm = new List<DataPoint>();
+                var pointsp = new List<DataPoint>();
+                points = new List<DataPoint>
+                {
+                    new DataPoint(-1500, data.nominal),
+                    new DataPoint(1500, data.nominal)
+                };
+                for (int i = countScanActual - 1; i >= 0; i--) //создание актуального графика
+                {
+                    int z = data.position[0] - 50 * i;
+                    float y = -(float)Math.Pow(z, 2) / (float)(Math.Pow(950, 2) * data.nominal * 9) + data.nominal * 0.985f;
+                    pointsm.Add(new DataPoint(data.position[0] - 50 * i, y));
+
+                    y = -(float)Math.Pow(z, 2) / (float)(Math.Pow(950, 2) * data.nominal * 9) + data.nominal * 1.005f;
+                    pointsp.Add(new DataPoint(data.position[0] - 50 * i, y));
+                }
+                modelActualGrafika.Points_minus10perc = pointsm;
+                modelActualGrafika.Points_plus10perc = pointsp;
+                modelActualGrafika.Points_set = points;
+                //--------------------------------------------------------------------------
+
                 if (failProfile) //обработка ошибочного профиля
                 {
                     for (int i = countScanActual - 1; i >= 0; i--)
@@ -474,8 +471,8 @@ namespace ProfileGraph
                         if (numberScan != 0)
                             scansData[numberScan, i] = scansData[numberScan - 1, i];    //запись в текущий скан предыдущего  профиля
                     }
-                    scansData[numberScan, countScanActual + 1] = -99; 
-                    scansData[numberScan, countScanActual + 2] = -99;
+                    scansData[numberScan, countScanActual + 1] = 0; 
+                    scansData[numberScan, countScanActual + 2] = 0;
                     failProfile = false;
                 }
                 else
@@ -483,16 +480,11 @@ namespace ProfileGraph
                     scansData[numberScan, countScanActual + 1] = data.fPrfMillPctCenter;
                     scansData[numberScan, countScanActual + 2] = data.fPrfTrimPctWedge;
                 }
+                
 
-                lineSeries.StrokeThickness = Double.Parse(INI.ReadINI("grafik_actual", "thickness"));    //толщина линии
-                lineSeries.Color = OxyColor.FromRgb(
-                    byte.Parse(INI.ReadINI("grafik_actual", "colorR")),
-                    byte.Parse(INI.ReadINI("grafik_actual", "colorG")),
-                    byte.Parse(INI.ReadINI("grafik_actual", "colorB"))
-                    );
-                model.Series.Add(lineSeries);   //добавляем график в модель
-                chartOxy.Model = model; //выводим график
-                chartOxy.Refresh();
+                modelActualGrafika.Points_sred = viewModel.Grafik_p_c.Points_sred;
+                viewModel.Grafik_p_c = modelActualGrafika;
+                DataContext = viewModel;
 
                 if (numberScan >=1)
                     grafBuilderSum(data);   //вызываем метод для отрисовки среднего графика
@@ -563,35 +555,9 @@ namespace ProfileGraph
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             cicle = false;
-            System.Diagnostics.Process.GetCurrentProcess().Kill(); //принудительно убиваем все процессы и потоки, которые зависят от нашей программы(чистка  ОП)
+            Process.GetCurrentProcess().Kill(); //принудительно убиваем все процессы и потоки, которые зависят от нашей программы(чистка  ОП)
         }
 
-        private void print_test_BTN_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-       
-
-        private void mainForm_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            /*if (mainForm.Height == 877.0)
-                if (mainForm.Width == 1024.0)
-                {
-                    gridGrafSum.Height = 300;
-                    LabelfPrfMillPctCenterSumTXT.Margin = new Thickness(20, 300, 0, 0);
-                    LabelfPrfMillPctCenterSum.Margin = new Thickness(20, 350, 0, 0);
-                    LabelfPrfTrimPctWedgeSumTXT.Margin = new Thickness(0, 300, 20, 0);
-                    LabelfPrfTrimPctWedgeSum.Margin = new Thickness(0, 350, 20, 0);
-                    gridGrafActual.Margin = new Thickness(20, 435, 20, 0);
-                    gridGrafActual.Height = 435;
-                    LabelfPrfMillPctCenterTXT.Margin = new Thickness(20, 435, 0, 0);
-                    LabelfPrfMillPctCenter.Margin = new Thickness(20, 485, 0, 0);
-                    LabelfPrfTrimPctWedgeTXT.Margin = new Thickness(0, 435, 20, 0);
-                    LabelfPrfTrimPctWedge.Margin = new Thickness(0, 485, 20, 0);
-                    mainForm.Refresh();
-                }
-                */
-        }
     }
 }
+

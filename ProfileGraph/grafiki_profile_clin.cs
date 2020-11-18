@@ -12,8 +12,8 @@ namespace ProfileGraph
             this.AxisX_max = 1100;
             this.AxisY_min = 2.3f;
             this.AxisY_max = 3.1f;
-            this.Title_sred = "Средний";
-            this.Title_actual = "Текущий";
+            this.Title_sred = "Усредненный график";
+            this.Title_actual = "Последний измеренный профиль";
             this.Points_sred = new List<DataPoint> { new DataPoint(0, 0) };
             this.Points_actual = new List<DataPoint> { new DataPoint(0, 0) };
             this.Points_plus10perc = new List<DataPoint> { new DataPoint(0, 0) };
@@ -25,12 +25,12 @@ namespace ProfileGraph
         public int AxisX_max { get; set; }
         public float AxisY_min { get; set; }
         public float AxisY_max { get; set; }
-        public string Title_sred { get; private set; }
-        public string Title_actual { get; private set; }
-        public IList<DataPoint> Points_sred { get; private set; }
-        public IList<DataPoint> Points_actual { get; private set; }
-        public IList<DataPoint> Points_plus10perc { get; private set; }
-        public IList<DataPoint> Points_minus10perc { get; private set; }
-        public IList<DataPoint> Points_set { get; private set; }
+        public string Title_sred { get; set; }
+        public string Title_actual { get; set; }
+        public IList<DataPoint> Points_sred { get; set; }
+        public IList<DataPoint> Points_actual { get; set; }
+        public IList<DataPoint> Points_plus10perc { get; set; }
+        public IList<DataPoint> Points_minus10perc { get; set; }
+        public IList<DataPoint> Points_set { get; set; }
     }
 }
