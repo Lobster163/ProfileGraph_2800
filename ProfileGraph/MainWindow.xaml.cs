@@ -154,11 +154,11 @@ namespace ProfileGraph
                     {                   
                         structMy myStruct = new structMy();
                         myStruct = ByteArrayToNewStuff(data);
-                        WriteDebugLog(myStruct.countPos.ToString());
-                        WriteDebugLog(myStruct.nominal.ToString());
-                        WriteDebugLog(myStruct.fPrfMillPctCenter.ToString());
-                        WriteDebugLog(myStruct.fPrfTrimPctWedge.ToString());
-                        WriteDebugLog(myStruct.position[0].ToString() + "\t " + myStruct.position[1].ToString());
+                        //WriteDebugLog(myStruct.countPos.ToString());
+                        //WriteDebugLog(myStruct.nominal.ToString());
+                        //WriteDebugLog(myStruct.fPrfMillPctCenter.ToString());
+                        //WriteDebugLog(myStruct.fPrfTrimPctWedge.ToString());
+                        //WriteDebugLog(myStruct.position[0].ToString() + "\t " + myStruct.position[1].ToString());
                         grafBuilder(myStruct);
                     }));
                 }
@@ -195,6 +195,12 @@ namespace ProfileGraph
             }
         }
         
+        private void EnableTriger()
+        {
+            viewModel_mem = new Grafik_uhod();
+            trigerON = true;
+        }
+
         /// <summary>
         /// постройка графиков для ухода полосы
         /// </summary>
@@ -203,21 +209,34 @@ namespace ProfileGraph
         {
             var viewModel = DataContext as ViewModel;
             //DataContext = new ViewModel();
-            if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON )    //тригер на включение записи
+
             //if (dataRECV.fValues[5] > -100.0f && dataRECV.fValues[45] > -100.0 && !trigerON)    //тригер на включение записи DEBUG
-            {                
-                viewModel_mem = new Grafik_uhod();
-                trigerON = true;
+            //если Усилие первой клити больше 100 и Измеренный ток двигателя 1 клети боольше 1500
+            if (dataRECV.fValues[48] != 4)
+            {
+                if (dataRECV.fValues[5] > 100.0f && dataRECV.fValues[45] > 1500.0 && !trigerON)    //тригер на включение записи 5 клетей
+                    EnableTriger();
             }
-            if (dataRECV.fValues[5] < 100.0f && dataRECV.fValues[9] < 100.0f &&
-                dataRECV.fValues[45] < 1500.0 && dataRECV.fValues[46] < 1500.0 && trigerON) //выключение тригера записи
+            else
+                if (dataRECV.fValues[6] > 100.0f && dataRECV.fValues[47] > 1500.0 && !trigerON)    //тригер на включение записи
+                    EnableTriger();
+
             /*debug 
-             * if (dataRECV.fValues[5] < -100.0f && dataRECV.fValues[9] < -100.0f &&
+              if (dataRECV.fValues[5] < -100.0f && dataRECV.fValues[9] < -100.0f &&
                 dataRECV.fValues[45] < -1500.0 && dataRECV.fValues[46] < -1500.0 && trigerON) //выключение тригера записи
             */
+
+            if (dataRECV.fValues[48] != 4)
             {
-                trigerON = false;
+                if (dataRECV.fValues[5] < 100.0f && dataRECV.fValues[9] < 100.0f &&
+                 dataRECV.fValues[45] < 1500.0 && dataRECV.fValues[46] < 1500.0 && trigerON) //выключение тригера записи
+                    trigerON = false;
             }
+            else
+                if (dataRECV.fValues[6] < 100.0f && dataRECV.fValues[9] < 100.0f &&
+                 dataRECV.fValues[47] < 1500.0 && dataRECV.fValues[47] < 1500.0 && trigerON) //выключение тригера записи
+                    trigerON = false;
+
 
             if (trigerON)  //разрешаем рисовать графики
             {
